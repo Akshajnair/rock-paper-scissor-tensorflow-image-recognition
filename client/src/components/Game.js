@@ -5,10 +5,8 @@ import * as handpose from "@tensorflow-models/handpose";
 import {
   Finger,
   FingerCurl,
-  FingerDirection,
   GestureDescription,
   GestureEstimator,
-  Gestures,
 } from "fingerpose";
 import Webcam from "react-webcam";
 import { drawHand } from "./utilities";
@@ -21,41 +19,33 @@ export class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      round: 1,
+      round: 0,
       machinewin: 0,
       playerwin: 0,
       tie: 0,
       error: "Please wait, System is loading",
-      machineplay: rock,
+      machineplay: null,
       playerplay: null,
+      gesture: null,
+      timeoutid: null,
+      shakeleft: "",
+      shakeright: "",
+      timer: null,
     };
     this.webcamRef = React.createRef();
     this.canvasRef = React.createRef();
   }
-
   componentDidMount() {
     this.runHandpose();
   }
-  playermove(gesture) {
-    if (gesture === "rock" && this.state.playerplay !== rock) {
-      this.setState({ playerplay: rock });
-    }
-    if (gesture === "paper" && this.state.playerplay !== paper) {
-      this.setState({ playerplay: paper });
-    }
-    if (gesture === "scissor" && this.state.playerplay !== scissor) {
-      this.setState({ playerplay: scissor });
-    }
-  }
   async runHandpose() {
-    const net = await handpose.load();
+    const net = await handpose.load({ detectionConfidence: 0.9 });
     console.log("Handpose model loaded.");
     //  Loop and detect hands
     setInterval(() => {
       this.detect(net);
     }, 100);
   }
-
   async detect(net) {
     const rockGesture = new GestureDescription("rock");
     const paperGesture = new GestureDescription("paper");
@@ -103,15 +93,23 @@ export class Game extends Component {
       // Make Detections
       const hand = await net.estimateHands(video, true);
 
-      if (hand.length === 0) this.setState({ error: "NO Hand Detected" });
-      else {
+      if (hand.length === 0) {
+        this.setState({
+          error: "NO Hand Detected",
+          playerplay: null,
+          machineplay: null,
+          gesture: null,
+        });
+        clearTimeout(this.state.timeoutid);
+      } else {
         this.setState({ error: "" });
-
         const gestures = GE.estimate(hand[0].landmarks, 7.5);
-        console.log(gestures);
-        if (gestures.gestures.length > 0) {
+        if (
+          gestures.gestures.length > 0 &&
+          gestures.gestures[0].name !== this.state.gesture
+        ) {
           this.playermove(gestures.gestures[0].name);
-          // console.log(gestures.gestures[0].name);
+          this.setState({ gesture: gestures.gestures[0].name });
         }
       }
       // Draw mesh
@@ -119,7 +117,77 @@ export class Game extends Component {
       drawHand(hand, ctx);
     }
   }
-
+  async playermove(gesture) {
+    this.setState({ timer: new Date().getSeconds() + 3 });
+    this.makingmove(true);
+    let intervalid = setInterval(() => {
+      if (this.state.gesture !== null) {
+        if (this.state.timer === new Date().getSeconds()) {
+          this.setplayermove(this.state.gesture);
+          this.makingmove(false);
+          clearInterval(intervalid);
+        }
+      } else {
+        clearInterval(intervalid);
+        this.makingmove(false);
+      }
+    }, 100);
+  }
+  makingmove(data) {
+    if (data) {
+      this.setState({
+        machineplay: rock,
+        playerplay: rock,
+        shakeleft: "shakeleft",
+        shakeright: "shakeright",
+      });
+    } else {
+      this.setState({
+        shakeleft: "",
+        shakeright: "",
+      });
+    }
+  }
+  setplayermove(gesture) {
+    if (gesture === "rock") {
+      this.setState({ playerplay: rock });
+      this.machinemove();
+    }
+    if (gesture === "paper") {
+      this.setState({ playerplay: paper });
+      this.machinemove();
+    }
+    if (gesture === "scissor") {
+      this.setState({ playerplay: scissor });
+      this.machinemove();
+    }
+  }
+  machinemove() {
+    let move = [rock, paper, scissor];
+    this.setState({ machineplay: move[Math.floor(Math.random() * 3)] });
+    this.winnercount();
+  }
+  winnercount() {
+    var tie = this.state.tie;
+    var playerwin = this.state.playerwin;
+    var machinewin = this.state.machinewin;
+    var round = this.state.round;
+    if (this.state.playerplay === this.state.machineplay) tie++;
+    if (
+      (this.state.playerplay === rock && this.state.machineplay === scissor) ||
+      (this.state.playerplay === scissor && this.state.machineplay === paper) ||
+      (this.state.playerplay === paper && this.state.machineplay === rock)
+    )
+      playerwin++;
+    if (
+      (this.state.machineplay === rock && this.state.playerplay === scissor) ||
+      (this.state.machineplay === scissor && this.state.playerplay === paper) ||
+      (this.state.machineplay === paper && this.state.playerplay === rock)
+    )
+      machinewin++;
+    round++;
+    this.setState({ playerwin, machinewin, tie, round });
+  }
   render() {
     return (
       <div>
@@ -150,7 +218,10 @@ export class Game extends Component {
               <div class="u-layout">
                 <div class="u-layout-row">
                   <div
-                    class="u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-image-1"
+                    class={
+                      "u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-image-1 " +
+                      this.state.shakeleft
+                    }
                     style={{
                       backgroundImage: "url(" + this.state.machineplay + ")",
                     }}
@@ -164,7 +235,10 @@ export class Game extends Component {
                     ></div>
                   </div>
                   <div
-                    class="u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-image-2"
+                    class={
+                      "u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-image-2 " +
+                      this.state.shakeright
+                    }
                     style={{
                       backgroundImage: "url(" + this.state.playerplay + ")",
                     }}

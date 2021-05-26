@@ -13,17 +13,17 @@ export default class Home extends Component {
     if (this.state.permissionask === true)
       return (
         <div>
-          <p class="u-large-text u-text u-text-variant u-text-2">
+          <p className="u-large-text u-text u-text-variant u-text-2">
             Click "Allow camera access" to give camera permission and play the
             game.
             <br />
-            <span style={{fontsize: "1rem"}}>
+            <span style={{ fontsize: "1rem" }}>
               Your Image and video will NOT be recorded
             </span>
           </p>
           <a
-            href={window.location.origin+"/game"}
-            class="
+            href={window.location.origin + "/game"}
+            className="
         u-border-3
         u-border-palette-4-base
         u-btn
@@ -43,21 +43,21 @@ export default class Home extends Component {
     else
       return (
         <div>
-          <p class="u-large-text u-text u-text-variant u-text-2">
+          <p className="u-large-text u-text u-text-variant u-text-2">
             A Tensorflow Hand pose Recognition game
             <br />
             Author:&nbsp;Akshaj Nair
           </p>
-          <div class="u-align-center-xs u-social-icons u-spacing-10 u-social-icons-1">
+          <div className="u-align-center-xs u-social-icons u-spacing-10 u-social-icons-1">
             <a
-              class="u-social-url"
+              className="u-social-url"
               title="instagram"
               target="_blank"
               href="https://www.instagram.com/akshajnair"
             >
-              <span class="u-icon u-icon-circle u-social-icon u-social-instagram u-text-palette-4-base u-icon-1">
+              <span className="u-icon u-icon-circle u-social-icon u-social-instagram u-text-palette-4-base u-icon-1">
                 <svg
-                  class="u-svg-link"
+                  className="u-svg-link"
                   preserveAspectRatio="xMidYMin slice"
                   viewBox="0 0 112 112"
                 >
@@ -67,7 +67,7 @@ export default class Home extends Component {
                   ></use>
                 </svg>
                 <svg
-                  class="u-svg-content"
+                  className="u-svg-content"
                   viewBox="0 0 112 112"
                   x="0"
                   y="0"
@@ -98,14 +98,14 @@ export default class Home extends Component {
               </span>
             </a>
             <a
-              class="u-social-url"
+              className="u-social-url"
               target="_blank"
               title="Github"
               href="https://github.com/Akshajnair"
             >
-              <span class="u-icon u-icon-circle u-social-github u-social-icon u-text-palette-4-base u-icon-2">
+              <span className="u-icon u-icon-circle u-social-github u-social-icon u-text-palette-4-base u-icon-2">
                 <svg
-                  class="u-svg-link"
+                  className="u-svg-link"
                   preserveAspectRatio="xMidYMin slice"
                   viewBox="0 0 112 112"
                 >
@@ -115,7 +115,7 @@ export default class Home extends Component {
                   ></use>
                 </svg>
                 <svg
-                  class="u-svg-content"
+                  className="u-svg-content"
                   viewBox="0 0 112 112"
                   x="0"
                   y="0"
@@ -142,7 +142,7 @@ c0,4.3,0.1,8.3,0.1,9.5h25.2c0-1.7,0.1-7.2,0.1-14c0-4.7-1.7-7.9-3.4-9.4C76,75.2,8
             onClick={function () {
               this1.setState({ permissionask: true });
             }}
-            class="u-border-3 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-custom-color-3 u-palette-4-base u-radius-50 u-text-hover-palette-4-base u-btn-1"
+            className="u-border-3 u-border-palette-4-base u-btn u-btn-round u-button-style u-hover-custom-color-3 u-palette-4-base u-radius-50 u-text-hover-palette-4-base u-btn-1"
           >
             PLAY
           </a>
@@ -153,14 +153,14 @@ c0,4.3,0.1,8.3,0.1,9.5h25.2c0-1.7,0.1-7.2,0.1-14c0-4.7-1.7-7.9-3.4-9.4C76,75.2,8
     return (
       <div>
         <section
-          class="u-align-center u-clearfix u-image u-shading u-section-1"
+          className="u-align-center u-clearfix u-image u-shading u-section-1"
           src=""
           data-image-width="1024"
           data-image-height="1614"
           id="sec-b44c"
         >
-          <div class="u-clearfix u-sheet u-valign-bottom-xl u-sheet-1">
-            <h1 class="u-custom-font u-font-lobster u-text u-text-palette-4-base u-title u-text-1">
+          <div className="u-clearfix u-sheet u-valign-bottom-xl u-sheet-1">
+            <h1 className="u-custom-font u-font-lobster u-text u-text-palette-4-base u-title u-text-1">
               ROCK PAPER SCISSOR
             </h1>
             {this.permissionask()}
