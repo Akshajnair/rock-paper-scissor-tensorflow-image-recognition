@@ -219,6 +219,7 @@
   pointer-events: auto;
   width: 834px;
   margin: 68px auto 0;
+  border: solid 5px #2cccc4;
 }
 
 .u-section-3 .u-image-1 {

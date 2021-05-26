@@ -14,6 +14,7 @@ import { drawHand } from "./utilities";
 import rock from "./assets/rock.svg";
 import paper from "./assets/paper.svg";
 import scissor from "./assets/scissor.svg";
+import loader from "./assets/loader.svg";
 
 export class Game extends Component {
   constructor(props) {
@@ -95,7 +96,8 @@ export class Game extends Component {
 
       if (hand.length === 0) {
         this.setState({
-          error: "NO Hand Detected",
+          error:
+            "NO Hand Detected",
           playerplay: null,
           machineplay: null,
           gesture: null,
@@ -256,8 +258,10 @@ export class Game extends Component {
             </div>
             <div
               class="u-align-right u-container-style u-group u-image u-image-3"
-              data-image-width="1980"
-              data-image-height="1385"
+              style={{
+                backgroundImage: "url(" + loader + ")",
+                backgroundColor: "#2cccc4",
+              }}
             >
               <Webcam
                 class="embed-responsive-item"
@@ -305,6 +309,7 @@ export class Game extends Component {
                   top: 0,
                   width: "auto",
                   height: "100%",
+                  color: "white",
                 }}
               >
                 {this.state.error}
