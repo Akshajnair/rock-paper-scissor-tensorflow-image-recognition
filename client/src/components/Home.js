@@ -48,15 +48,15 @@ export default class Home extends Component {
             <br />
             Author:&nbsp;Akshaj Nair
           </p>
-          <div class="u-align-center-xs u-social-icons u-spacing-10 u-social-icons-1">
+          <div className="u-align-center-xs u-social-icons u-spacing-10 u-social-icons-1">
             <a
-              class="u-social-url"
+              className="u-social-url"
               title="instagram"
               target="_blank"
               href="https://www.instagram.com/akshajnair"
             >
               <span
-                class="
+                className="
                 u-icon
                 u-icon-circle
                 u-social-icon
@@ -66,7 +66,7 @@ export default class Home extends Component {
               "
               >
                 <svg
-                  class="u-svg-link"
+                  className="u-svg-link"
                   preserveAspectRatio="xMidYMin slice"
                   viewBox="0 0 112 112"
                 >
@@ -76,7 +76,7 @@ export default class Home extends Component {
                   ></use>
                 </svg>
                 <svg
-                  class="u-svg-content"
+                  className="u-svg-content"
                   viewBox="0 0 112 112"
                   x="0"
                   y="0"
@@ -107,13 +107,13 @@ export default class Home extends Component {
               </span>
             </a>
             <a
-              class="u-social-url"
+              className="u-social-url"
               target="_blank"
               title="Github"
               href="https://github.com/Akshajnair"
             >
               <span
-                class="
+                className="
                 u-icon
                 u-icon-circle
                 u-social-github
@@ -123,7 +123,7 @@ export default class Home extends Component {
               "
               >
                 <svg
-                  class="u-svg-link"
+                  className="u-svg-link"
                   preserveAspectRatio="xMidYMin slice"
                   viewBox="0 0 112 112"
                 >
@@ -133,7 +133,7 @@ export default class Home extends Component {
                   ></use>
                 </svg>
                 <svg
-                  class="u-svg-content"
+                  className="u-svg-content"
                   viewBox="0 0 112 112"
                   x="0"
                   y="0"
@@ -179,7 +179,7 @@ export default class Home extends Component {
         >
           <div className="u-clearfix u-sheet u-valign-bottom-xl u-sheet-1">
             <h1
-              class="
+              className="
             u-custom-font
             u-font-lobster
             u-text
