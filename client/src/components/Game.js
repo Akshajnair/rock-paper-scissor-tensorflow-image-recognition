@@ -96,8 +96,7 @@ export class Game extends Component {
 
       if (hand.length === 0) {
         this.setState({
-          error:
-            "NO Hand Detected",
+          error: "NO Hand Detected",
           playerplay: null,
           machineplay: null,
           gesture: null,
@@ -315,6 +314,24 @@ export class Game extends Component {
                 {this.state.error}
               </div>
               <div class="u-container-layout u-container-layout-3"></div>
+            </div>
+            <div class="u-container-style u-group u-shape-rectangle u-group-2">
+              <div class="u-container-layout u-container-layout-4">
+                <h1 class="u-align-center u-text u-text-palette-4-base u-text-8">
+                  How to play
+                </h1>
+                <p class="u-align-center u-text u-text-9">
+                  <span style={{fontWeight: "700"}}>1.</span> Keep your hand
+                  within the camera frame.
+                  <br />
+                  <span style={{fontWeight: "700"}}>2.</span> Make your move with
+                  your hand (rock with a fist, paper with an open palm, and
+                  scissor with victory gesture).
+                  <br />
+                  <span style={{fontWeight: "700"}}>3. </span>hold your hand still
+                  for 3 sec.
+                </p>
+              </div>
             </div>
           </div>
         </section>
