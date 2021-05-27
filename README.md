@@ -1,6 +1,24 @@
-# Getting Started with Create React App
+# Rock Paper Scissor Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Use Tensorflow Hand recognition model to make moves and play.
+
+## Getting Started
+
+Live version is available at https://rock-paper-scissor-tensorflow.herokuapp.com feel free to test it out and report any issues.
+
+## ScreenShots
+
+### Home Page
+
+![Home Page](https://raw.githubusercontent.com/Akshajnair/rock-paper-scissor-tensorflow-image-recognition/main/screenshots/home.png)
+
+### Game page
+
+![Game Page](https://raw.githubusercontent.com/Akshajnair/rock-paper-scissor-tensorflow-image-recognition/main/screenshots/game.png)
+
+### Gameplay
+
+![Gameplay](https://raw.githubusercontent.com/Akshajnair/rock-paper-scissor-tensorflow-image-recognition/main/screenshots/vid.mp4)
 
 ## Available Scripts
 
@@ -39,32 +57,19 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Akshaj Nair** - _React and Backend_ - [akshajnair](https://github.com/Akshajnair)
+- **Deepti Adhikari** - _Client-side Design_ - [adhikari-deepti](https://github.com/adhikari-deepti)
+
+## credits
+
+Image on the welcome page is from [Naolito.com]
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
