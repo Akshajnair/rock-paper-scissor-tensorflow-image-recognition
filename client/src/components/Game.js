@@ -101,7 +101,7 @@ export class Game extends Component {
 
       // Make Detections
       const hand = await net.estimateHands(video, true);
-      
+
       if (hand.length === 0) {
         this.setState({
           error: "NO Hand Detected",
@@ -127,7 +127,7 @@ export class Game extends Component {
     }
   }
   async playermove(gesture) {
-    this.setState({ timer: new Date().getSeconds() + 3 });
+    this.setState({ timer: new Date().getSeconds() + 2 });
     this.makingmove(true);
     let intervalid = setInterval(() => {
       if (this.state.gesture !== null) {
