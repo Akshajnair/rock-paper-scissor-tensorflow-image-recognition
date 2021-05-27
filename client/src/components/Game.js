@@ -32,6 +32,14 @@ export class Game extends Component {
       shakeleft: "",
       shakeright: "",
       timer: null,
+      arenacss: {
+        backgroundImage: "url(" + loader + ")",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        backgroundPosition: "center",
+        textAlign: "center",
+        backgroundColor: "#2cccc4",
+      },
     };
     this.webcamRef = React.createRef();
     this.canvasRef = React.createRef();
@@ -93,7 +101,7 @@ export class Game extends Component {
 
       // Make Detections
       const hand = await net.estimateHands(video, true);
-
+      
       if (hand.length === 0) {
         this.setState({
           error: "NO Hand Detected",
@@ -189,6 +197,11 @@ export class Game extends Component {
     round++;
     this.setState({ playerwin, machinewin, tie, round });
   }
+  loaderdisp() {
+    if (this.state.error === "Please wait, System is loading") {
+      return loader;
+    } else if (this.state.arenacss !== null) this.setState({ arenacss: null });
+  }
   render() {
     return (
       <div>
@@ -215,7 +228,10 @@ export class Game extends Component {
             <h2 className="u-align-right-md u-align-right-sm u-align-right-xs u-custom-font u-font-lobster u-text u-text-default u-text-grey-50 u-text-7">
               {this.state.playerwin}
             </h2>
-            <div className="u-clearfix u-gutter-98 u-layout-wrap u-layout-wrap-1">
+            <div
+              className="u-clearfix u-gutter-98 u-layout-wrap u-layout-wrap-1"
+              style={this.state.arenacss}
+            >
               <div className="u-layout">
                 <div className="u-layout-row">
                   <div
@@ -258,7 +274,7 @@ export class Game extends Component {
             <div
               className="u-align-right u-container-style u-group u-image u-image-3"
               style={{
-                backgroundImage: "url(" + loader + ")",
+                backgroundImage: "url(" + this.loaderdisp() + ")",
                 backgroundColor: "#2cccc4",
               }}
             >
@@ -321,15 +337,15 @@ export class Game extends Component {
                   How to play
                 </h1>
                 <p className="u-align-center u-text u-text-9">
-                  <span style={{fontWeight: "700"}}>1.</span> Keep your hand
+                  <span style={{ fontWeight: "700" }}>1.</span> Keep your hand
                   within the camera frame.
                   <br />
-                  <span style={{fontWeight: "700"}}>2.</span> Make your move with
-                  your hand (rock with a fist, paper with an open palm, and
+                  <span style={{ fontWeight: "700" }}>2.</span> Make your move
+                  with your hand (rock with a fist, paper with an open palm, and
                   scissor with victory gesture).
                   <br />
-                  <span style={{fontWeight: "700"}}>3. </span>hold your hand still
-                  for 3 sec.
+                  <span style={{ fontWeight: "700" }}>3. </span>hold your hand
+                  still for 3 sec.
                 </p>
               </div>
             </div>
