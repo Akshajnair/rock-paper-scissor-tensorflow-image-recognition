@@ -1,6 +1,3 @@
-
-https://user-images.githubusercontent.com/34983749/119874235-060a8980-bf43-11eb-9a4f-5283315a207a.mp4
-
 # Rock Paper Scissor Game
 
 Use Tensorflow Hand recognition model to make moves and play.
@@ -20,8 +17,7 @@ Live version is available at https://rock-paper-scissor-tensorflow.herokuapp.com
 ![Game Page](https://raw.githubusercontent.com/Akshajnair/rock-paper-scissor-tensorflow-image-recognition/main/screenshots/game.png)
 
 ### Gameplay
-
-https://raw.githubusercontent.com/Akshajnair/rock-paper-scissor-tensorflow-image-recognition/main/screenshots/vid.mp4
+https://user-images.githubusercontent.com/34983749/119874235-060a8980-bf43-11eb-9a4f-5283315a207a.mp4
 
 ## Available Scripts
 
