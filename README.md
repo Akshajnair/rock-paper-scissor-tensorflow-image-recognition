@@ -62,8 +62,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ## Authors
 
-- **Akshaj Nair** - _React and Backend_ - [akshajnair](https://github.com/Akshajnair)
-- **Deepti Adhikari** - _Client-side Design_ - [adhikari-deepti](https://github.com/adhikari-deepti)
+- **Akshaj Nair** - [akshajnair](https://github.com/Akshajnair)
 
 ## credits
 
