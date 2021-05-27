@@ -67,7 +67,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ## credits
 
-Image on the welcome page is from [Naolito.com]
+Image on the welcome page is from [Naolito.com](Naolito.com)
 
 ## License
 
