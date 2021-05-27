@@ -23,6 +23,7 @@ https://user-images.githubusercontent.com/34983749/119874235-060a8980-bf43-11eb-
 
 In the project directory, you can run:
 
+### `cd client`
 ### `npm start`
 
 Runs the app in the development mode.\
